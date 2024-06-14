@@ -1,0 +1,41 @@
+TypeOrm Relations
+
+1. One to One Relations 
+ - This is an association where one entity is related to another entity exclusively.
+ - This means that each row in one table corresponds to one and only row in another table. 
+ - A one-to-one relation is established by using the @OneToOne decorator provided by TypeORM. One of the 
+ entities in the relationship will need a @JoinColumn decorator which will indicate that this entity contains the foreign key.
+
+2. One to Many or Many to One Relation
+ a. One to Many Relation
+    - One record in a table is associated with multiple records in another table
+    - Example: Employee can have many Tasks
+ b. Many to One 
+    - Multiple records in a table are associated with a single record in another table.
+    - Example: Many Tasks are assigned to one Employee
+
+
+
+
+
+
+
+
+THE DATA MODEL
+1. Employee table
+    - can refrence self (managers and direct reports)
+        if manager is deleted set refrence to Null
+    - one to one relationship with contact infor
+    - one to many relationship with Tasks
+    - many to many with meetings
+
+2. Contact Info table
+    - one to one relationship with Employee
+    - delete if employee is deleted
+
+3. Task table
+    - many to one relationship with Employee
+    - set employeeId to Null if Employee is deleted
+4. Meeting table
+    - many to many relationship with Employee (via relationship table)
+    - remove Employee as attendee if Employee is deleted 
