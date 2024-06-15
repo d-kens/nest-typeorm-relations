@@ -18,7 +18,8 @@ import { Meeting } from './entities/meeting.entity';
       database: 'typeorm_relations',
       entities: [Employee, ContactInfo, Task, Meeting],
       synchronize: true
-    })
+    }),
+    TypeOrmModule.forFeature([Employee, Task, ContactInfo, Meeting])
   ],
   controllers: [AppController],
   providers: [AppService],
